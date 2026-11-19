@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linha do Tempo dos Gêneros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header>
+  <h1>Linha do Tempo dos Gêneros</h1>
+  <div class="grupo" id="filtro-tipos">
+    <span class="titulo">Relações</span>
+    <label class="chave"><input type="checkbox" value="origina" checked><i class="traco"></i>Origina</label>
+    <label class="chave"><input type="checkbox" value="funde" checked><i class="traco funde"></i>Funde</label>
+    <label class="chave"><input type="checkbox" value="influencia" checked><i class="traco influencia"></i>Influencia</label>
+  </div>
+  <div class="grupo" id="filtro-familias"><span class="titulo">Famílias</span></div>
+  <div class="grupo tempo">
+    <button class="principal" id="tocar">Tocar</button>
+    <label for="ate" class="titulo" style="font-size:0.85rem;color:var(--suave)">Até</label>
+    <input type="range" id="ate" min="1900" max="2000" step="10" value="2000">
+    <output id="ate-valor" for="ate">2000</output>
+  </div>
+  <div class="grupo">
+    <button id="v-tempo">Linha do tempo</button>
+    <button id="v-afinidade">Por afinidade</button>
+    <button id="v-centralizar">Centralizar</button>
+  </div>
+</header>
+
+<main><div id="grafo"></div></main>
+
+<aside>
+  <section id="detalhes" class="bloco"></section>
+
+  <section>
+    <h2>Caminho entre gêneros</h2>
+    <div class="form">
+      <div class="duas">
+        <label class="campo">De<select id="c-de"></select></label>
+        <label class="campo">Até<select id="c-ate"></select></label>
+      </div>
+      <button class="principal" id="c-buscar">Encontrar caminho</button>
+      <div id="c-resultado" class="resultado"></div>
+    </div>
+  </section>
+
+  <section>
+    <details>
+      <summary>Curadoria: novo gênero</summary>
+      <form class="form" id="novo">
+        <label class="campo">Nome<input type="text" id="n-nome" required placeholder="Ex.: Trap latino"></label>
+        <div class="duas">
+          <label class="campo">Década<select id="n-decada"></select></label>
+          <label class="campo">Família<select id="n-familia"></select></label>
+        </div>
+        <label class="campo">Lugar<input type="text" id="n-lugar" placeholder="Ex.: Porto Rico"></label>
+        <label class="campo">Relação<select id="n-tipo">
+          <option value="origina">Origina (uma origem)</option>
+          <option value="funde">Funde (duas origens)</option>
+        </select></label>
+        <div class="duas">
+          <label class="campo">Origem 1<select id="n-origem1"></select></label>
+          <label class="campo">Origem 2<select id="n-origem2"></select></label>
+        </div>
+        <button class="principal" type="submit">Validar e cadastrar</button>
+        <p id="n-msg" class="erro" role="status"></p>
+      </form>
+    </details>
+  </section>
+
+  <section>
+    <details>
+      <summary>Importar e exportar dados</summary>
+      <div class="form">
+        <textarea id="json" aria-label="Dados em JSON" readonly></textarea>
+        <div class="duas">
+          <button id="copiar">Copiar JSON</button>
+          <label class="campo" for="arquivo">Importar .json<input type="file" id="arquivo" accept=".json,application/json"></label>
+        </div>
+        <p id="i-msg" class="erro" role="status"></p>
+      </div>
+    </details>
+  </section>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<script src="dados.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

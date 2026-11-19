@@ -1,0 +1,56 @@
+
+1. Resumo do grafo
+------------------
+Vértices (gêneros): 32
+Arestas (relações): 43 -> {'origina': 15, 'funde': 22, 'influencia': 6}
+
+2. Validação
+------------
+Linhagem sem ciclos (DAG): True
+Relações que voltam no tempo: 0
+
+3. Gerações (ordem topológica da linhagem)
+------------------------------------------
+0: Blues, Samba, Country, Gospel, Ska, Techno
+1: Jazz, Rocksteady
+2: Rhythm and blues, Bossa nova, Reggae
+3: Rock and roll, Soul, MPB, Dancehall, Dub
+4: Funk, Rock, Drum and bass
+5: Tropicália, Disco, Heavy metal, Punk
+6: Hip-hop, Grunge, House
+7: Miami bass, Reggaeton, UK garage, Trap
+8: Funk carioca, Dubstep
+
+4. De onde vem e o que gerou: Bossa nova
+----------------------------------------
+Ancestrais: Blues, Jazz, Samba
+Descendentes: MPB, Tropicália
+
+5. Caminho de Blues até Dubstep
+-------------------------------
+Só linhagem (6 passos): Blues --funde--> Rhythm and blues --funde--> Soul --funde--> Disco --origina--> House --origina--> UK garage --funde--> Dubstep
+Com influências (6 passos): Blues --funde--> Rhythm and blues --funde--> Soul --origina--> Funk --funde--> Hip-hop --influencia--> Drum and bass --influencia--> Dubstep
+
+6. Ancestral comum mais recente: Bossa nova e Rock and roll
+-----------------------------------------------------------
+Jazz (1910)
+
+7. Gêneros com mais descendentes
+--------------------------------
+Blues: 21
+Jazz: 20
+Rhythm and blues: 17
+Gospel: 11
+Soul: 10
+
+8. Gêneros-ponte (centralidade de intermediação)
+------------------------------------------------
+Hip-hop: 0.054
+Soul: 0.051
+Rhythm and blues: 0.050
+Disco: 0.031
+Reggae: 0.026
+
+9. Maior cadeia de linhagem
+---------------------------
+9 gêneros: Blues -> Jazz -> Rhythm and blues -> Soul -> Funk -> Disco -> House -> UK garage -> Dubstep
